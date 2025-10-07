@@ -9,3 +9,8 @@ function getComputerChoice() {
 }
 
 console.log(getComputerChoice());
+
+// Create a new function (getHumanChoice)
+// Create an array of possible choices
+// Generate a prompt to get the user's input of the possible choices
+// Return the user's choice
