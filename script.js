@@ -23,3 +23,6 @@ function getHumanChoice() {
 }
 
 console.log(getHumanChoice());
+
+// Create two new varialbes named humanScore and computerScore
+// Initialize variables with the value of 0
