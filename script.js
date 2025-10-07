@@ -11,6 +11,15 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 // Create a new function (getHumanChoice)
+function getHumanChoice() {
 // Create an array of possible choices
+  const choices = ["rock", "paper", "scissors"];
 // Generate a prompt to get the user's input of the possible choices
+  let answer = prompt("Input your choice: ");
 // Return the user's choice
+  if (choices.includes(answer)) {
+    return answer;
+  }
+}
+
+console.log(getHumanChoice());
