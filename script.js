@@ -27,7 +27,32 @@ let computerScore = 0;
 
 // Create a new function (playRound)
 // Define two parameters for playRound (humanChoice and computerChoice)
+function playRound(humanChoice, computerChoice) {
 // Use these two parameters to take those choices as arguments
 // Make the function's humanChoice parameter case-insensitive
+  humanChoice = humanChoice.toLowerCase();
+  computerChoice = computerChoice.toLowerCase();
 // Have playRound console.log a string value representing the round winner, such as: "You lose! Paper beats Rock"
 // Increment the humanScore or computerScore variable based on the round winner
+  if (humanChoice === computerChoice) {
+    console.log(`It's a tie! You both chose ${humanChoice}`);
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") || 
+    (humanChoice === "paper" && computerChoice === "rock") || 
+    (humanChoice === "scissors" && computerChoice === "paper")
+   ) {
+    humanScore += 1;
+    console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+  } else {
+    computerScore += 1;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log("Computer chose:", computerSelection);
+console.log("You chose:", humanSelection);
+
+playRound(humanSelection, computerSelection);
