@@ -1,3 +1,8 @@
+ // Create two new variables named humanScore and computerScore
+// Initialize variables with the value of 0
+  let humanScore = 0;
+  let computerScore = 0;  
+
 // Create a function
 function getComputerChoice() {
 // Create an array of possible choices
@@ -19,11 +24,6 @@ function getHumanChoice() {
     return answer;
   }
 }
-
-// Create two new variables named humanScore and computerScore
-// Initialize variables with the value of 0
-let humanScore = 0;
-let computerScore = 0;
 
 // Create a new function (playRound)
 // Define two parameters for playRound (humanChoice and computerChoice)
@@ -51,24 +51,25 @@ function playRound(humanChoice, computerChoice) {
   console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log("Computer chose:", computerSelection);
-console.log("You chose:", humanSelection);
-
-playRound(humanSelection, computerSelection);
-
 // Create a new function (playGame)
 // Move playRound and score variables so they are declared inside of playGame
 // Play 5 rounds by calling playRound 5 times
 
-function playGame () {
-  let human = getHumanChoice();
-  let computer = getComputerChoice();
-  playRound(human, computer);
+// Function to play multiple rounds, keep the score, and state the winner
+function playGame(numberOfRounds) {
+  for (let i = 1; i <= numberOfRounds; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice(); 
+    console.log(`Round ${i}:`);
+    console.log("You chose:", humanSelection);
+    console.log("Computer chose:", computerSelection);
+    playRound(humanSelection, computerSelection);
+    console.log("-------------");
+  }
+
+  console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
 } 
+// Ask user how manyu rounds they want to play
 let numberOfRounds = parseInt(prompt("How many rounds do you want to play?"));
- for (let i = 1; i <= numberOfRounds; i++) {
-    playGame();
- }
+
+playGame(numberOfRounds);
