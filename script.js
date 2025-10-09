@@ -62,3 +62,13 @@ playRound(humanSelection, computerSelection);
 // Create a new function (playGame)
 // Move playRound and score variables so they are declared inside of playGame
 // Play 5 rounds by calling playRound 5 times
+
+function playGame () {
+  let human = getHumanChoice();
+  let computer = getComputerChoice();
+  playRound(human, computer);
+} 
+let numberOfRounds = parseInt(prompt("How many rounds do you want to play?"));
+ for (let i = 1; i <= numberOfRounds; i++) {
+    playGame();
+ }
