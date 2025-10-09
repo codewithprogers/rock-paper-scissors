@@ -58,3 +58,7 @@ console.log("Computer chose:", computerSelection);
 console.log("You chose:", humanSelection);
 
 playRound(humanSelection, computerSelection);
+
+// Create a new function (playGame)
+// Move playRound and score variables so they are declared inside of playGame
+// Play 5 rounds by calling playRound 5 times
