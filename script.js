@@ -56,16 +56,18 @@ function playGame() {
     console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
   }
   
-  for (let i = 1; i <= 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+  // for (let i = 1; i <= 5; i++) {
+  //   const humanSelection = getHumanChoice();
+  //   const computerSelection = getComputerChoice();
 
-    console.log(`Round ${i}:`);
-    playRound(humanSelection, computerSelection);
-    console.log("-------------");
-  }
+  //   console.log(`Round ${i}:`);
+  //   playRound(humanSelection, computerSelection);
+  //   console.log("-------------");
+  // }
 
-  console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+  // console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
+
+
 
 playGame();
