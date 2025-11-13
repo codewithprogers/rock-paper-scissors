@@ -1,8 +1,3 @@
- // Create two new variables named humanScore and computerScore
-// Initialize variables with the value of 0
-  let humanScore = 0;
-  let computerScore = 0;  
-
 // Create a function
 function getComputerChoice() {
 // Create an array of possible choices
@@ -25,51 +20,52 @@ function getHumanChoice() {
   }
 }
 
-// Create a new function (playRound)
-// Define two parameters for playRound (humanChoice and computerChoice)
-function playRound(humanChoice, computerChoice) {
-// Use these two parameters to take those choices as arguments
-// Make the function's humanChoice parameter case-insensitive
-  humanChoice = humanChoice.toLowerCase();
-  computerChoice = computerChoice.toLowerCase();
-// Have playRound console.log a string value representing the round winner, such as: "You lose! Paper beats Rock"
-// Increment the humanScore or computerScore variable based on the round winner
-  if (humanChoice === computerChoice) {
-    console.log(`It's a tie! You both chose ${humanChoice}`);
-  } else if (
-    (humanChoice === "rock" && computerChoice === "scissors") || 
-    (humanChoice === "paper" && computerChoice === "rock") || 
-    (humanChoice === "scissors" && computerChoice === "paper")
-   ) {
-    humanScore += 1;
-    console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-  } else {
-    computerScore += 1;
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-  }
-
-  console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
-}
-
 // Create a new function (playGame)
 // Move playRound and score variables so they are declared inside of playGame
 // Play 5 rounds by calling playRound 5 times
 
-// Function to play multiple rounds, keep the score, and state the winner
-function playGame(numberOfRounds) {
-  for (let i = 1; i <= numberOfRounds; i++) {
+// Function to play five rounds, keep the score, and state the winner
+function playGame() {
+// Create two new variables named humanScore and computerScore
+// Initialize variables with the value of 0
+  let humanScore = 0;
+  let computerScore = 0;
+// Create a new function (playRound)
+// Define two parameters for playRound (humanChoice and computerChoice)
+  function playRound(humanChoice, computerChoice) {
+// Use these two parameters to take those choices as arguments
+// Make the function's humanChoice parameter case-insensitive
+    humanChoice = humanChoice.toLowerCase();
+    computerChoice = computerChoice.toLowerCase();
+// Have playRound console.log a string value representing the round winner, such as: "You lose! Paper beats Rock"
+// Increment the humanScore or computerScore variable based on the round winner
+    if (humanChoice === computerChoice) {
+      console.log(`It's a tie! You both chose ${humanChoice}`);
+    } else if (
+      (humanChoice === "rock" && computerChoice === "scissors") || 
+      (humanChoice === "paper" && computerChoice === "rock") || 
+      (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+      humanScore += 1;
+      console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+    } else {
+      computerScore += 1;
+      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    }
+
+    console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
+  }
+  
+  for (let i = 1; i <= 5; i++) {
     const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice(); 
+    const computerSelection = getComputerChoice();
+
     console.log(`Round ${i}:`);
-    console.log("You chose:", humanSelection);
-    console.log("Computer chose:", computerSelection);
     playRound(humanSelection, computerSelection);
     console.log("-------------");
   }
 
   console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
-} 
-// Ask user how manyu rounds they want to play
-let numberOfRounds = parseInt(prompt("How many rounds do you want to play?"));
+}
 
-playGame(numberOfRounds);
+playGame();
