@@ -1,102 +1,59 @@
-// Create a function
+let humanScore = 0;
+let computerScore = 0;
+
+const div = document.createElement("div");
+document.body.appendChild(div);
+
 function getComputerChoice() {
-// Create an array of possible choices
   const choices = ["rock", "paper", "scissors"];
-// Generate a random index
   const randomIndex = Math.floor(Math.random() * choices.length);
-// Return one random choice
   return choices[randomIndex];
 }
 
-// Create a new function (getHumanChoice)
-function getHumanChoice() {
-// Create an array of possible choices
-  const choices = ["rock", "paper", "scissors"];
-// Generate a prompt to get the user's input of the possible choices
-  let answer = prompt("Input your choice: ").toLowerCase();
-// Return the user's choice
-  if (choices.includes(answer)) {
-    return answer;
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
+  let resultMessage = "";
+
+  if (humanChoice === computerChoice) {
+    resultMessage = `It's a tie! You both chose ${humanChoice}`;
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") || 
+    (humanChoice === "paper" && computerChoice === "rock") || 
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore += 1;
+    resultMessage = `You Win! ${humanChoice} beats ${computerChoice}`;
+  } else {
+    computerScore += 1;
+    resultMessage = (`You lose! ${computerChoice} beats ${humanChoice}`);
   }
-}
 
-// Create a new function (playGame)
-// Move playRound and score variables so they are declared inside of playGame
-// Play 5 rounds by calling playRound 5 times
+  let scoreMessage = `Score - You: ${humanScore}, Computer: ${computerScore}`;
 
-// Function to play five rounds, keep the score, and state the winner
-function playGame() {
-// Create two new variables named humanScore and computerScore
-// Initialize variables with the value of 0
-  let humanScore = 0;
-  let computerScore = 0;
-// Create a new function (playRound)
-// Define two parameters for playRound (humanChoice and computerChoice)
-  function playRound(humanChoice, computerChoice) {
-// Use these two parameters to take those choices as arguments
-// Make the function's humanChoice parameter case-insensitive
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice = computerChoice.toLowerCase();
-// Have playRound console.log a string value representing the round winner, such as: "You lose! Paper beats Rock"
-// Increment the humanScore or computerScore variable based on the round winner
-    if (humanChoice === computerChoice) {
-      console.log(`It's a tie! You both chose ${humanChoice}`);
-    } else if (
-      (humanChoice === "rock" && computerChoice === "scissors") || 
-      (humanChoice === "paper" && computerChoice === "rock") || 
-      (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-      humanScore += 1;
-      console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-    } else {
-      computerScore += 1;
-      console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-    }
-
-    console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
+  if (humanScore === 5 || computerScore === 5) {
+    scoreMessage = `Final Score - You: ${humanScore}, Computer: ${computerScore}`;
   }
-  
-  // for (let i = 1; i <= 5; i++) {
-  //   const humanSelection = getHumanChoice();
-  //   const computerSelection = getComputerChoice();
 
-  //   console.log(`Round ${i}:`);
-  //   playRound(humanSelection, computerSelection);
-  //   console.log("-------------");
-  // }
-
-  // console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+  div.textContent = `${resultMessage}\n${scoreMessage}`;
 }
 
 const rockBtn = document.createElement("button");
+rockBtn.textContent = "Rock";
 const paperBtn = document.createElement("button");
+paperBtn.textContent = "Paper";
 const scissorsBtn = document.createElement("button");
+scissorsBtn.textContent = "Scissors";
 
-rockBtn.addEventListener('click',function(event) {
-  playRound("rock", getComputerChoice());
+document.body.appendChild(rockBtn);
+document.body.appendChild(paperBtn);
+document.body.appendChild(scissorsBtn);
+
+rockBtn.addEventListener('click', () => {
+  if (humanScore < 5 && computerScore < 5) playRound("rock")
 });
-paperBtn.addEventListener('click',function(event) {
-  playRound("paper", getComputerChoice());
+paperBtn.addEventListener('click', () => {
+  if (humanScore < 5 && computerScore < 5) playRound("paper")
 });
-scissorsBtn.addEventListener('click',function(event) {
-  playRound("scissors", getComputerChoice());
+scissorsBtn.addEventListener('click', () => {
+  if (humanScore < 5 && computerScore < 5) playRound("scissors")
 });
-
-const div = document.createElement("div");
-parentNode.appendChild(div);
-if (humanChoice === computerChoice) {
-  div.textContent = (`It's a tie! You both chose ${humanChoice}`);
-} else if (
-  (humanChoice === "rock" && computerChoice === "scissors") || 
-  (humanChoice === "paper" && computerChoice === "rock") || 
-  (humanChoice === "scissors" && computerChoice === "paper")
-) {
-  humanScore += 1;
-  div.textContent = (`You Win! ${humanChoice} beats ${computerChoice}`);
-} else {
-  computerScore += 1;
-  div.textContent = (`You lose! ${computerChoice} beats ${humanChoice}`);
-}
-
-
-// playGame();
