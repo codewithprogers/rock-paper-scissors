@@ -82,4 +82,21 @@ scissorsBtn.addEventListener('click',function(event) {
   playRound("scissors", getComputerChoice());
 });
 
+const div = document.createElement("div");
+parentNode.appendChild(div);
+if (humanChoice === computerChoice) {
+  div.textContent = (`It's a tie! You both chose ${humanChoice}`);
+} else if (
+  (humanChoice === "rock" && computerChoice === "scissors") || 
+  (humanChoice === "paper" && computerChoice === "rock") || 
+  (humanChoice === "scissors" && computerChoice === "paper")
+) {
+  humanScore += 1;
+  div.textContent = (`You Win! ${humanChoice} beats ${computerChoice}`);
+} else {
+  computerScore += 1;
+  div.textContent = (`You lose! ${computerChoice} beats ${humanChoice}`);
+}
+
+
 // playGame();
