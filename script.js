@@ -68,6 +68,18 @@ function playGame() {
   // console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
 }
 
+const rockBtn = document.createElement("button");
+const paperBtn = document.createElement("button");
+const scissorsBtn = document.createElement("button");
 
+rockBtn.addEventListener('click',function(event) {
+  playRound("rock", getComputerChoice());
+});
+paperBtn.addEventListener('click',function(event) {
+  playRound("paper", getComputerChoice());
+});
+scissorsBtn.addEventListener('click',function(event) {
+  playRound("scissors", getComputerChoice());
+});
 
-playGame();
+// playGame();
