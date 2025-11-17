@@ -1,9 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const div = document.createElement("div");
-document.body.appendChild(div);
-
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -34,7 +31,7 @@ function playRound(humanChoice) {
     scoreMessage = `Final Score - You: ${humanScore}, Computer: ${computerScore}`;
   }
 
-  div.textContent = `${resultMessage}\n${scoreMessage}`;
+  resultsDiv.textContent = `${resultMessage}\n${scoreMessage}`;
 }
 
 const rockBtn = document.createElement("button");
@@ -44,9 +41,12 @@ paperBtn.textContent = "Paper";
 const scissorsBtn = document.createElement("button");
 scissorsBtn.textContent = "Scissors";
 
-document.body.appendChild(rockBtn);
-document.body.appendChild(paperBtn);
-document.body.appendChild(scissorsBtn);
+const buttonsDiv = document.querySelector(".buttons");
+const resultsDiv = document.querySelector(".results");
+
+buttonsDiv.appendChild(rockBtn);
+buttonsDiv.appendChild(paperBtn);
+buttonsDiv.appendChild(scissorsBtn);
 
 rockBtn.addEventListener('click', () => {
   if (humanScore < 5 && computerScore < 5) playRound("rock")
