@@ -57,3 +57,13 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
   if (humanScore < 5 && computerScore < 5) playRound("scissors")
 });
+
+const rulesHeader = document.querySelector(".rule-header");
+const rulesContent = document.getElementById("rules-content");
+
+rulesHeader.addEventListener('click',() => {
+  const isCurrentlyHidden = rulesContent.hidden;
+  rulesContent.hidden = !isCurrentlyHidden;
+
+  rulesHeader.setAttribute("aria-expanded", !isCurrentlyHidden);
+});

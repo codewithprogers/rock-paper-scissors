@@ -10,7 +10,16 @@
 <body>
   <div id="game">
     <h1 class="heading">Rock, Paper, Scissors</h1>
-    <h2 class="rule">First to five wins!</h2>
+    <div class="rules-container">
+      <button class="rule-header" aria-expanded="false" aria-controls="rules-content">
+        Rules to the Game
+      </button>
+      <div id="rules-content" class="rules-content" hidden>
+        <p>You will be playing against the computer.</p>
+        <p>You can choose between Rock, Paper, and Scissors</p>
+        <p>The first to five points wins.</p>
+      </div>
+    </div>
     <div class="buttons"></div>
     <div class="results"></div>
   </div>
