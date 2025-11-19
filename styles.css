@@ -21,14 +21,37 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 1rem;
 }
 
 h1.heading {
+  font-family: "Press Start 2P", sans-serif;
+  word-spacing: -2.5rem;
   font-size: 3rem;
 }
 
 h2.rule {
   font-weight: 100;
+}
+
+.rules-container button {
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  font-family: "Press Start 2P", sans-serif;
+  /* color: white; */
+  word-spacing: -0.3rem;
+  /* box-shadow: 0 2px 4px rgba(0,0,0,0.15); */
+}
+
+.rules-content {
+  border: 2px solid black;
+  border-radius: .5rem;
+  line-height: 2rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: .6rem;
 }
