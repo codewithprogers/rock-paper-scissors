@@ -2,7 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
+  const choices = ["Rock", "Paper", "Scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
@@ -16,9 +16,9 @@ function playRound(humanChoice) {
   if (humanChoice === computerChoice) {
     resultMessage = `It's a tie! You both chose ${humanChoice}`;
   } else if (
-    (humanChoice === "rock" && computerChoice === "scissors") || 
-    (humanChoice === "paper" && computerChoice === "rock") || 
-    (humanChoice === "scissors" && computerChoice === "paper")
+    (humanChoice === "Rock" && computerChoice === "Scissors") || 
+    (humanChoice === "Paper" && computerChoice === "Rock") || 
+    (humanChoice === "Scissors" && computerChoice === "Paper")
   ) {
     humanScore += 1;
     resultMessage = `You Win! ${humanChoice} beats ${computerChoice}`;
@@ -27,6 +27,8 @@ function playRound(humanChoice) {
     computerScore += 1;
     resultMessage = (`You lose! ${computerChoice} beats ${humanChoice}`);
     resultsDiv.classList.add("lose");
+  } if (humanScore === 5) {
+    showConfetti();
   }
 
   let scoreMessage = `Score - You: ${humanScore}, Computer: ${computerScore}`;
@@ -36,6 +38,14 @@ function playRound(humanChoice) {
   }
 
   resultsDiv.textContent = `${resultMessage}\n${scoreMessage}`;
+}
+
+function showConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
 }
 
 const rockBtn = document.createElement("button");
@@ -53,13 +63,13 @@ buttonsDiv.appendChild(paperBtn);
 buttonsDiv.appendChild(scissorsBtn);
 
 rockBtn.addEventListener('click', () => {
-  if (humanScore < 5 && computerScore < 5) playRound("rock")
+  if (humanScore < 5 && computerScore < 5) playRound("Rock")
 });
 paperBtn.addEventListener('click', () => {
-  if (humanScore < 5 && computerScore < 5) playRound("paper")
+  if (humanScore < 5 && computerScore < 5) playRound("Paper")
 });
 scissorsBtn.addEventListener('click', () => {
-  if (humanScore < 5 && computerScore < 5) playRound("scissors")
+  if (humanScore < 5 && computerScore < 5) playRound("Scissors")
 });
 
 const rulesHeader = document.querySelector(".rule-header");
