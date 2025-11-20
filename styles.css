@@ -80,6 +80,11 @@ h2.rule {
   transform: translateX(2.5px);
 }
 
+button:hover {
+  color: white;
+  background-color: black;
+}
+
 .results {
   font-family: "Press Start 2P", sans-serif;
   font-size: 0.8rem;
