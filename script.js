@@ -11,6 +11,8 @@ function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
   let resultMessage = "";
 
+  resultsDiv.classList.remove("win", "lose");
+
   if (humanChoice === computerChoice) {
     resultMessage = `It's a tie! You both chose ${humanChoice}`;
   } else if (
@@ -20,9 +22,11 @@ function playRound(humanChoice) {
   ) {
     humanScore += 1;
     resultMessage = `You Win! ${humanChoice} beats ${computerChoice}`;
+    resultsDiv.classList.add("win");
   } else {
     computerScore += 1;
     resultMessage = (`You lose! ${computerChoice} beats ${humanChoice}`);
+    resultsDiv.classList.add("lose");
   }
 
   let scoreMessage = `Score - You: ${humanScore}, Computer: ${computerScore}`;

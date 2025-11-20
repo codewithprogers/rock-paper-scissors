@@ -90,3 +90,11 @@ button:hover {
   font-size: 0.8rem;
   transform: translateX(1px);
 }
+
+.win {
+  color: #2ecc71;
+}
+
+.lose {
+  color: #e74c3c;
+}
